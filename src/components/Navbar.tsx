@@ -31,6 +31,17 @@ export default function Header() {
   ];
 
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +54,6 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Close grid menu when opening navbar menu
     if (!isMenuOpen) {
       setIsGridMenuOpen(false);
     }
@@ -70,26 +80,18 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? "bg-black/10 backdrop-blur-md shadow-md "
+            ? "bg-transparent backdrop-blur-xs shadow-md "
             : "bg-transparent py-2"
         }`}
       >
         <nav className=" mx-auto px-4 md:px-14 ">
           <div className="flex justify-between items-center">
             <div className="text-white text-xl font-bold">
-              {/* <Image
-                src="/images/logo.png"
-                alt="Al Eliza Interior Logo"
-                width={150}
-                height={150}
-                className="h-20 w-20 lg:h-28 lg:w-28"
-              /> */}
-
               <Image
                 src="/images/logo.png"
                 alt="Al Eliza Interior Logo"
-                width={scrolled ? 60 : 110}
-                height={scrolled ? 60 : 110}
+                width={scrolled || isMobile ? 60 : 110}
+                height={scrolled || isMobile ? 60 : 110}
                 className="transition-all duration-300"
               />
             </div>

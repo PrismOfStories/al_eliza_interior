@@ -45,11 +45,11 @@ export default function AnimatedCounter({
       transition={{ duration: 0.6 }}
       className="flex flex-col items-center text-center"
     >
-      <h2 className="text-5xl font-bold text-[#c38e24]">
+      <h2 className="text-5xl font-bold text-yellow">
         {count}
         {suffix}
       </h2>
-      <p className="text-xl text-gray-400">{label}</p>
+      <p className="text-2xl font-bold ">{label}</p>
     </motion.div>
   );
 }
