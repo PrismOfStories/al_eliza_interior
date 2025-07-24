@@ -8,14 +8,12 @@ export default function Page() {
     <>
       {/* HERO SECTION */}
       <div className="relative h-screen bg-cover bg-center">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+        <Image
+          src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
+          alt="Background"
+          layout="fill"
+          objectFit="cover"
+          priority
         />
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="absolute top-0 left-0 w-full h-32 bg-[#050913] opacity-90 z-10" />
