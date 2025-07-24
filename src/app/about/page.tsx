@@ -16,7 +16,7 @@ export default function Page() {
           priority
         />
         <div className="absolute inset-0 bg-black opacity-50" />
-        <div className="absolute top-0 left-0 w-full h-32 bg-[#050913] opacity-90 z-10" />
+        <div className="absolute top-0 left-0 w-full h-32 bg-transparent opacity-90 z-10" />
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center text-white mt-12 px-4">
             <h1 className="text-4xl font-bold mb-4">About Us</h1>

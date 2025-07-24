@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
@@ -30,6 +30,17 @@ export default function Header() {
     { name: "LinkedIn", href: "https://linkedin.com", icon: FaLinkedinIn },
   ];
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     // Close grid menu when opening navbar menu
@@ -56,16 +67,30 @@ export default function Header() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 z-50">
-        <nav className=" mx-auto px-4 md:px-14 py-4">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-black/10 backdrop-blur-md shadow-md "
+            : "bg-transparent py-2"
+        }`}
+      >
+        <nav className=" mx-auto px-4 md:px-14 ">
           <div className="flex justify-between items-center">
             <div className="text-white text-xl font-bold">
-              <Image
+              {/* <Image
                 src="/images/logo.png"
                 alt="Al Eliza Interior Logo"
                 width={150}
                 height={150}
                 className="h-20 w-20 lg:h-28 lg:w-28"
+              /> */}
+
+              <Image
+                src="/images/logo.png"
+                alt="Al Eliza Interior Logo"
+                width={scrolled ? 60 : 110}
+                height={scrolled ? 60 : 110}
+                className="transition-all duration-300"
               />
             </div>
 
@@ -211,7 +236,7 @@ export default function Header() {
                               delay: 0.5 + index * 0.1,
                               duration: 0.3,
                             }}
-                            className="absolute left-0 top-1/2 transform -translate-y-1/2 h-8 bg-white"
+                            className="absolute left-0 top-1/2 transform -translate-y-1/2 h-8 bg-[#c38e24] "
                           />
                         )}
                       </Link>
