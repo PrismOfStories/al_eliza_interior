@@ -33,49 +33,49 @@ export default function Home() {
       description:
         "We provide tailored interior design solutions for residential and commercial spaces with elegance and functionality.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301312/img4_slwfgq.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375129/img4_te0upt.webp",
     },
     {
       title: "Design Consultancy",
       description:
         "Expert design consultations to turn your vision into reality, from layout planning to final finishes.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301307/img1_i7es83.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img1_crbyqj.webp",
     },
     {
       title: "Virtual Reality 360° Designs",
       description:
         "Experience your space before it's built with immersive 360° VR walkthroughs and visualizations.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301305/img5_rmjv6x.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375129/img5_nsn0nj.webp",
     },
     {
       title: "Fit out Approvals",
       description:
         "We manage and secure fit-out approvals with relevant authorities to ensure smooth project execution.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301304/img2_guriht.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp",
     },
     {
       title: "Turnkey Fit out Projects",
       description:
         "From concept to completion – we handle every aspect of your project with end-to-end solutions.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301304/img3_rzj3z8.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375128/img3_u7qqdu.webp",
     },
     {
       title: "Landscaping",
       description:
         "Transform your outdoor spaces with creative and sustainable landscaping solutions.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301307/img1_i7es83.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp",
     },
     {
       title: "Maintenance",
       description:
         "Comprehensive maintenance services to keep your spaces functional, safe, and beautiful.",
       image:
-        "https://res.cloudinary.com/dpzuexs49/image/upload/v1753301304/img2_guriht.webp",
+        "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_2_ucqtyb.webp",
     },
   ];
 
@@ -89,12 +89,12 @@ export default function Home() {
             muted
             playsInline
             aria-hidden="true"
-            poster="https://res.cloudinary.com/dpzuexs49/image/upload/v1753302867/intro-poster_qonht1.webp"
+            poster="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp"
             className="w-full h-full object-cover opacity-70 pointer-events-none"
           >
             <source
               width="720"
-              src="https://res.cloudinary.com/dpzuexs49/video/upload/v1753213392/intro2_1_eacnbz.mp4"
+              src="https://res.cloudinary.com/dxhmpdgqj/video/upload/v1753375133/intro_ofgrvv.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -198,7 +198,7 @@ export default function Home() {
           >
             <div className="border-[14px] border-t-0 border-r-0 border-[#70541d] h-full w-[90%] ml-auto relative top-0 flex justify-end items-start">
               <Image
-                src="/images/img2.jpg"
+                src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
                 alt="Main Sample"
                 className="w-[96%] h-[96%] object-cover"
                 width={800}

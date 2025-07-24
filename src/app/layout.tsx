@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Al-Eliza Interior",
     images: [
       {
-        url: "https://alelizainteriors.com/wp-content/uploads/2022/12/logo.png",
+        url: "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375285/logo_hfohxb.png",
         width: 1200,
         height: 630,
         alt: "Al Eliza Interior - Elegant Design Solutions",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description:
       "Al Eliza Interior specializes in creating beautiful, functional spaces with elegant design solutions.",
     images: [
-      "https://alelizainteriors.com/wp-content/uploads/2022/12/logo.png",
+      "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375285/logo_hfohxb.png",
     ],
   },
   robots: {

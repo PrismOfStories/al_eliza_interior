@@ -9,7 +9,9 @@ export const metadata: Metadata = {
     title: "Al Eliza Interior | Elegant Design Solutions",
     description:
       "Welcome to Al Eliza Interior. Discover our elegant design solutions and transform your space with our expert interior design services.",
-    images: ["/images/intro-poster.jpg"],
+    images: [
+      "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp",
+    ],
   },
 };
 
