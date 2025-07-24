@@ -3,7 +3,8 @@
 import React from "react";
 import { cubicBezier, motion } from "framer-motion";
 import Image from "next/image";
-import AnimatedCounter from "./AnimatedCounter";
+import AnimatedCounter from "../AnimatedCounter";
+import { Button } from "../ui/button";
 
 export default function Home() {
   const containerVariant = {
@@ -105,22 +106,20 @@ export default function Home() {
           <div className="text-left md:text-center px-5 text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
               Building Your{" "}
-              <span className="text-[#c38e24] font-bold">Dream & Future</span>
+              <span className="text-yellow font-bold">Dream & Future</span>
             </h1>
-            {/* <p className="text-xl md:text-2xl mb-4">
-              Delivering impeccable quality standards and outstanding client
-              services.
-            </p> */}
             <p className="text-xl md:text-2xl">
               Honoring architectural vision and ensuring exceptional execution.
             </p>
 
-            <button
+            <Button
               onClick={() => alert("Start Your Design Journey Clicked")}
-              className="border border-[#c38e24]  hover:bg-[#c38e24]  text-white cursor-pointer  px-8 py-3 mt-8 rounded-lg font-semibold  transition-colors pointer-events-auto"
+              variant="al_eliza"
+              size="al_eliza"
+              className="mt-7 border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
             >
               Start Your Transformation
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -136,7 +135,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="relative text-center text-6xl font-extrabold z-10 text-[#c38e24] mb-20"
+              className="relative text-center text-6xl font-extrabold z-10 text-yellow mb-20"
             >
               About us
             </motion.h2>
@@ -151,7 +150,7 @@ export default function Home() {
               {[
                 <p
                   key="1"
-                  className="text-xl underline underline-offset-8 [text-decoration-color:#70541d]"
+                  className="text-xl underline underline-offset-8 [text-decoration-color:#70541d] tracking-wide font-semibold"
                 >
                   Established in 2021
                 </p>,
@@ -181,12 +180,14 @@ export default function Home() {
               ))}
             </motion.div>
 
-            <button
+            <Button
               onClick={() => alert("navigate to about page")}
-              className="hover:bg-[#c38e24] border border-[#c38e24] cursor-pointer text-white w-40 px-8 py-3 mt-8 rounded-lg font-semibold transition-colors pointer-events-auto"
+              variant="al_eliza"
+              size="al_eliza"
+              className="w-40 mt-7"
             >
               Read More
-            </button>
+            </Button>
           </div>
 
           <motion.div
@@ -196,7 +197,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="flex items-center justify-end h-[700px] px-6"
           >
-            <div className="border-[14px] border-t-0 border-r-0 border-[#70541d] h-full w-[90%] ml-auto relative top-0 flex justify-end items-start">
+            <div className="border-[14px] border-t-0 border-r-0 border-yellow-dark h-full w-[90%] ml-auto relative top-0 flex justify-end items-start">
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
                 alt="Main Sample"
