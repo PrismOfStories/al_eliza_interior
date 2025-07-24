@@ -104,7 +104,10 @@ export default function Page() {
       {/* CORE PILLARS SECTION */}
       <div
         className="w-full py-16 px-6 md:px-12 lg:px-20 bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/images/intro-poster.jpg')" }}
+        style={{
+          backgroundImage:
+            "url('https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp')",
+        }}
       >
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
