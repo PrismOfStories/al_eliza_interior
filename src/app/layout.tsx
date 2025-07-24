@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import FollowingDot from "@/components/FollowingDot";
+// import FollowingDot from "@/components/FollowingDot";
 import Preloader from "@/components/Preloader";
 import "./globals.css";
 
@@ -92,7 +92,7 @@ export default function RootLayout({
           <span className="hidden xl:block 2xl:hidden">xl</span>
           <span className="hidden 2xl:block">2xl</span>
         </div>
-        <FollowingDot />
+        {/* <FollowingDot /> */}
         <Navbar />
         {children}
       </body>
