@@ -201,24 +201,57 @@ export default function Home() {
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
                 alt="Main Sample"
-                className="w-[96%] h-[96%] object-cover"
+                className="w-[96%] h-[96%] object-cover rounded-r-md"
                 width={800}
                 height={800}
               />
             </div>
           </motion.div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-16 pt-24 ">
-          <AnimatedCounter target={75} label="Crew" />
-          <AnimatedCounter target={300} label="Clients" />
-          <AnimatedCounter target={7} label="Years Experience" />
-          <AnimatedCounter target={450} label="Projects" />
+
+        <div className="relative mt-20 py-20 h-full md:h-[400px] w-full overflow-hidden">
+          {/* Background image with grayscale */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753393326/img6_laomha.webp"
+              alt="Background"
+              layout="fill"
+              objectFit="cover"
+              quality={75}
+              priority
+              className="object-center"
+            />
+          </div>
+
+          {/* Black overlay */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+
+          {/* Content */}
+          <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-2xl sm:text-4xl font-bold uppercase">
+                Our Achievements
+              </h2>
+              <div className="relative mt-3 flex items-center justify-center">
+                <div className="h-[2px] bg-yellow w-1/12" />
+                <span className="mx-3 w-1 h-1 rounded-full bg-yellow" />
+                <div className="h-[2px] bg-yellow w-1/12" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-16 py-16">
+              <AnimatedCounter target={75} label="Crew" />
+              <AnimatedCounter target={300} label="Clients" />
+              <AnimatedCounter target={7} label="Years Experience" />
+              <AnimatedCounter target={450} label="Projects" />
+            </div>
+          </div>
         </div>
       </section>{" "}
-      <section className="py-16 bg-[#050913]">
+      <section className="pb-16 pt-16 bg-[#050913]">
         <div className="container mx-auto px-4">
-          <div className="relative text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold uppercase text-white">
+          <div className="relative text-center mb-16">
+            <h2 className="text-2xl sm:text-4xl font-bold uppercase text-white">
               Our Services
             </h2>
 
@@ -229,11 +262,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="relative h-[320px] rounded-xl overflow-hidden shadow-md group cursor-pointer"
+                className="relative h-[250px] rounded-md overflow-hidden shadow-md group cursor-pointer"
               >
                 <Image
                   src={service.image}
@@ -244,8 +277,8 @@ export default function Home() {
                 />
 
                 {/* Default title (visible before hover) */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 group-hover:opacity-0">
-                  <h3 className="text-white text-lg font-bold text-center px-4 z-10">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0">
+                  <h3 className="text-white text-xl font-bold text-center px-4 z-10">
                     {service.title}
                   </h3>
                 </div>

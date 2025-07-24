@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export default function Page() {
   return (
     <>
-      <div className="relative h-screen bg-cover bg-center">
+      <div className="relative h-[45vh] bg-cover bg-center">
         <Image
           src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
           alt="Background"
@@ -17,7 +17,7 @@ export default function Page() {
           objectFit="cover"
           priority
         />
-        <div className="absolute inset-0 bg-black opacity-30" />
+        <div className="absolute inset-0 bg-black opacity-45" />
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -25,8 +25,8 @@ export default function Page() {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="text-center mt-12 px-4"
           >
-            <h1 className="text-4xl font-bold mb-4 text-white">About Us</h1>
-            <p className="text-lg text-white max-w-2xl mx-auto">
+            <h1 className="text-5xl font-bold mb-4 text-white">About Us</h1>
+            <p className="text-xl text-white max-w-2xl mx-auto">
               Welcome to our company! We are dedicated to delivering the best
               services and products with passion and professionalism.
             </p>
@@ -35,7 +35,7 @@ export default function Page() {
       </div>
 
       <section className="py-16 sm:py-24 relative">
-        <div className="w-full max-w-7xl px-4 md:px-8 lg:px-10 mx-auto">
+        <div className="w-full max-w-[95rem] px-4 md:px-8 lg:px-10 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export default function Page() {
       >
         <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-20">
           <div className="w-full lg:w-[400px] flex justify-center items-center relative">
             <div className="relative w-full max-w-lg">
               <Image
@@ -127,11 +127,13 @@ export default function Page() {
                 height={300}
               />
               <div
-                className="absolute bottom-[-30px] left-5 right-5 bg-white text-[#FCBA06] shadow-lg rounded-lg py-4 px-6 max-w-md mx-auto text-center"
+                className="absolute bottom-[-50px] left-5 right-5 backdrop-blur-sm bg-black/20  text-[#FCBA06] shadow-lg rounded-lg py-4 px-6 max-w-md mx-auto text-center"
                 style={{ zIndex: 10 }}
               >
-                <p className="font-bold text-lg md:text-xl">Our Core Pillars</p>
-                <p className="text-sm md:text-base text-black">
+                <p className="font-bold text-xl md:text-2xl">
+                  Our Core Pillars
+                </p>
+                <p className="text-sm md:text-base text-white">
                   We offer a dynamic and inclusive work environment that fosters
                   growth, creativity, and innovation.
                 </p>
@@ -140,43 +142,45 @@ export default function Page() {
           </div>
 
           <div className="w-full lg:w-1/2 flex flex-col items-center space-y-6">
-            <div className="w-full bg-white shadow-md rounded-lg p-6 flex items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-[#FCBA06] text-white mr-4 rounded-full">
+            <div className="w-full backdrop-blur-sm bg-black/20 shadow-md rounded-lg p-6 flex items-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-yellow  mr-4 rounded-full">
                 <FaHandsHelping className="text-2xl md:text-3xl" />
               </div>
               <div className="flex-1">
-                <p className="text-black text-sm md:text-base">
-                  <strong>Trust</strong> Our clients choose us for our
-                  transparency, commitment to promises, and consistent
-                  dedication to surpassing expectations.
-                </p>
+                <div className=" text-sm md:text-base">
+                  <p className="font-bold text-xl text-paragraph">Trust</p>Our
+                  clients choose us for our transparency, commitment to
+                  promises, and consistent dedication to surpassing
+                  expectations.
+                </div>
               </div>
             </div>
 
-            <div className="w-full bg-white shadow-md rounded-lg p-6 flex items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-[#FCBA06] text-white mr-4 rounded-full">
+            <div className="w-full backdrop-blur-sm bg-black/20 shadow-md rounded-lg p-6 flex items-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-yellow  mr-4 rounded-full">
                 <FaStar className="text-2xl md:text-3xl" />
               </div>
               <div className="flex-1">
-                <p className="text-black text-sm md:text-base">
-                  <strong>Quality</strong> We achieve unmatched quality by
-                  adhering to the highest standards, utilizing skilled
-                  craftsmanship, and sourcing premium materials to deliver
-                  exceptional results.
-                </p>
+                <div className=" text-sm md:text-base">
+                  <p className="font-bold text-xl text-paragraph">Quality</p> We
+                  achieve unmatched quality by adhering to the highest
+                  standards, utilizing skilled craftsmanship, and sourcing
+                  premium materials to deliver exceptional results.
+                </div>
               </div>
             </div>
 
-            <div className="w-full bg-white shadow-md rounded-lg p-6 flex items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-[#FCBA06] text-white mr-4 rounded-full">
+            <div className="w-full backdrop-blur-sm bg-black/20 shadow-md rounded-lg p-6 flex items-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-yellow  mr-4 rounded-full">
                 <FaUserCog className="text-2xl md:text-3xl " />
               </div>
               <div className="flex-1">
-                <p className="text-black text-sm md:text-base">
-                  <strong>Service</strong> We provide personalized,
-                  client-focused solutions, ensuring a smooth and timely project
-                  experience tailored to each unique vision.
-                </p>
+                <div className=" text-sm md:text-base">
+                  <p className="font-bold text-xl text-paragraph">Service</p> We
+                  provide personalized, client-focused solutions, ensuring a
+                  smooth and timely project experience tailored to each unique
+                  vision.
+                </div>
               </div>
             </div>
           </div>
