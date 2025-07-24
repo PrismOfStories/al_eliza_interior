@@ -5,6 +5,8 @@ import { cubicBezier, motion } from "framer-motion";
 import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
 import { Button } from "../ui/button";
+import { RiTimer2Line } from "react-icons/ri";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 export default function Home() {
   const containerVariant = {
@@ -123,7 +125,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen h-full bg-[#050913] flex flex-col items-center justify-center pt-20">
+      <section className="min-h-screen h-full  flex flex-col items-center justify-center pt-20 ">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-7xl">
           <div className="flex flex-col justify-center px-8 py-10 relative">
             <h2 className="absolute top-4 md:top-4 lg:top-4 xl:top-5 whitespace-nowrap -right-24 lg:right-0 sm:right-10 md:-right-28 xl:right-10 2xl:right-10 left-1/2 -translate-x-1/2 text-6xl text-gray-700 font-bold z-0 select-none opacity-50">
@@ -201,16 +203,17 @@ export default function Home() {
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
                 alt="Main Sample"
-                className="w-[96%] h-[96%] object-cover rounded-r-md"
+                className="w-[96%] h-[96%] object-cover rounded-r-md hover:scale-105 transition-transform duration-500"
                 width={800}
                 height={800}
               />
             </div>
           </motion.div>
         </div>
-
-        <div className="relative mt-20 py-20 h-full md:h-[400px] w-full overflow-hidden">
-          {/* Background image with grayscale */}
+      </section>{" "}
+      <section className="pt-20">
+        {" "}
+        <div className="relative  h-full md:h-[400px] w-full overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753393326/img6_laomha.webp"
@@ -223,19 +226,21 @@ export default function Home() {
             />
           </div>
 
-          {/* Black overlay */}
           <div className="absolute inset-0 bg-black/60 z-10" />
 
-          {/* Content */}
-          <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
+          <div className="relative z-20 flex flex-col items-center justify-center h-full text-white py-20">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-2xl sm:text-4xl font-bold uppercase">
+              <h2 className="text-3xl sm:text-4xl font-bold uppercase">
                 Our Achievements
               </h2>
-              <div className="relative mt-3 flex items-center justify-center">
-                <div className="h-[2px] bg-yellow w-1/12" />
-                <span className="mx-3 w-1 h-1 rounded-full bg-yellow" />
-                <div className="h-[2px] bg-yellow w-1/12" />
+              <p className="text-lg sm:text-xl text-paragraph mt-2">
+                Milestones that reflect our passion, precision, and trusted
+                excellence
+              </p>
+              <div className="relative mt-4 flex items-center justify-center">
+                <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
+                <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
+                <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
               </div>
             </div>
 
@@ -247,18 +252,21 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>{" "}
-      <section className="pb-16 pt-16 bg-[#050913]">
+      </section>
+      <section className=" pt-32">
         <div className="container mx-auto px-4">
           <div className="relative text-center mb-16">
-            <h2 className="text-2xl sm:text-4xl font-bold uppercase text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold uppercase text-white">
               Our Services
             </h2>
-
-            <div className="relative mt-3 flex items-center justify-center">
-              <div className="h-[2px] bg-[#70541d] w-1/12" />
+            <p className="text-lg sm:text-xl text-paragraph mt-2">
+              Professional design services that blend style and function
+              delivering impactful, high-quality solutions for every need.
+            </p>
+            <div className="relative mt-4 flex items-center justify-center">
+              <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
               <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
-              <div className="h-[2px] bg-[#70541d] w-1/12" />
+              <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
             </div>
           </div>
 
@@ -276,14 +284,11 @@ export default function Home() {
                   height={800}
                 />
 
-                {/* Default title (visible before hover) */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0">
                   <h3 className="text-white text-xl font-bold text-center px-4 z-10">
                     {service.title}
                   </h3>
                 </div>
-
-                {/* Hover content */}
                 <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <h3 className="text-xl font-semibold mb-2">
                     {service.title}
@@ -300,6 +305,116 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="pt-28">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="border-yellow-dark border-y py-20 flex flex-col items-center justify-center">
+            <div className="max-w-4xl space-y-2 flex justify-center items-center flex-col gap-4 px-10">
+              <div className="space-y-4">
+                <p className="text-center text-7xl font-extrabold tracking-widest text-yellow">
+                  Why us?
+                </p>
+                <p className="text-center text-paragraph text-3xl">
+                  Building The Dream.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-center text-base text-paragraph">
+                  Our team of professionals is dedicated to working personally
+                  with each client to uncover their specific wants, needs and
+                  style to infuse their space with luxurious yet functional
+                  design that balance style with necessity.
+                </p>
+
+                <p className="text-center text-base text-paragraph">
+                  Collaborate with us and implement exceptional designs, that
+                  deliver remarkable first impressions and exceed your
+                  expectations.
+                </p>
+              </div>{" "}
+            </div>
+            <div className="mt-14">
+              <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-white px-6">
+                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">
+                    Our Attention to Details
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">Price Certainty</p>
+                </div>
+
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">
+                    Our Credibility & Excellent Service
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">
+                    More than 5 years of experience
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">
+                    Impeccable quality standards
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <RiTimer2Line className="h-12 w-12 text-yellow" />
+                  <p className="text-lg font-semibold">
+                    Highly Creative in-house Designers
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-center mt-10">
+                <Button variant="al_eliza" size="al_eliza" className="ml-4">
+                  Get a Quote
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className=" bg-white">
+            <div className="py-16 px-6 flex flex-col items-center text-center relative h-full justify-center gap-14 ">
+              <div className="text-[#d49d39] text-lg sm:text-xl font-medium leading-relaxed space-y-1">
+                <p className="text-2xl max-w-lg relative">
+                  <FaQuoteLeft className="inline-block mr-2 absolute -top-3 -left-2" />
+                  Over 7 years of expertise Uncompromising Quality Standards
+                  Visionary In-House Designers Meticulous Attention to Detail
+                  Transparent Pricing Assurance Trusted Credibility Outstanding
+                  Client Service
+                  <FaQuoteRight className="inline-block ml-2 absolute -bottom-2 right-18" />
+                </p>
+              </div>
+
+              <p className="max-w-xl text-black text-[16px] leading-relaxed font-light italic mb-8">
+                &quot;Our team takes immense pride in surpassing our
+                clients&apos; expectations, crafting each project into a
+                masterpiece where architectural precision and artistic vision
+                converge seamlessly. We believe that no space is truly complete
+                without a signature element of art, reflecting the soul of its
+                design&quot;
+              </p>
+
+              {/* Signature image */}
+              {/* <img
+                src="/images/signature.png" 
+                alt="Signature"
+                className="w-32 h-auto"
+              /> */}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="h-screen">under construction</section>
     </main>
   );
 }
