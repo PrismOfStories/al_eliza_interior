@@ -5,7 +5,6 @@ import { cubicBezier, motion } from "framer-motion";
 import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
 import { Button } from "../ui/button";
-import { RiTimer2Line } from "react-icons/ri";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 export default function Home() {
@@ -84,6 +83,7 @@ export default function Home() {
 
   return (
     <main>
+      {/* Hero Section */}
       <section className="relative min-h-screen w-full overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full z-0 bg-black">
           <video
@@ -125,7 +125,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen h-full  flex flex-col items-center justify-center pt-20 ">
+      {/* About Us Section */}
+      <section className="min-h-screen h-full py-16 md:py-28 flex flex-col items-center justify-center  ">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-7xl">
           <div className="flex flex-col justify-center px-8 py-10 relative">
             <h2 className="absolute top-4 md:top-4 lg:top-4 xl:top-5 whitespace-nowrap -right-24 lg:right-0 sm:right-10 md:-right-28 xl:right-10 2xl:right-10 left-1/2 -translate-x-1/2 text-6xl text-gray-700 font-bold z-0 select-none opacity-50">
@@ -202,7 +203,7 @@ export default function Home() {
             <div className="border-[14px] border-t-0 border-r-0 border-yellow-dark h-full w-[90%] ml-auto relative top-0 flex justify-end items-start">
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
-                alt="Main Sample"
+                alt="About Us Image"
                 className="w-[96%] h-[96%] object-cover rounded-r-md hover:scale-105 transition-transform duration-500"
                 width={800}
                 height={800}
@@ -211,18 +212,17 @@ export default function Home() {
           </motion.div>
         </div>
       </section>{" "}
-      <section className="pt-20">
+      {/* Achievements Section */}
+      <section className="py-14">
         {" "}
         <div className="relative  h-full md:h-[400px] w-full overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753393326/img6_laomha.webp"
-              alt="Background"
-              layout="fill"
-              objectFit="cover"
-              quality={75}
+              alt="Achievements Background"
+              fill
               priority
-              className="object-center"
+              className="object-cover object-center"
             />
           </div>
 
@@ -230,7 +230,7 @@ export default function Home() {
 
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-white py-20">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold uppercase">
+              <h2 className="text-center text-5xl font-extrabold tracking-widest ">
                 Our Achievements
               </h2>
               <p className="text-lg sm:text-xl text-paragraph mt-2">
@@ -253,10 +253,14 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" pt-32">
+      {/* Services Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center py-14 md:py-24">
         <div className="container mx-auto px-4">
           <div className="relative text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold uppercase text-white">
+            {/* <h2 className="text-3xl sm:text-4xl font-bold uppercase text-white">
+              Our Services
+            </h2> */}
+            <h2 className="text-center text-5xl font-extrabold tracking-widest text-yellow">
               Our Services
             </h2>
             <p className="text-lg sm:text-xl text-paragraph mt-2">
@@ -270,52 +274,136 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="relative h-[250px] rounded-md overflow-hidden shadow-md group cursor-pointer"
-              >
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  width={800}
-                  height={800}
-                />
-
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0">
-                  <h3 className="text-white text-xl font-bold text-center px-4 z-10">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm opacity-90 mb-4">
-                    {service.description}
-                  </p>
-                  <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded ">
-                    READ MORE →
-                  </button>
-                </div>
+          <div className="h-full py-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto px-4 ">
+              {/* Column 1 – 2 items */}
+              <div className="flex flex-col gap-4">
+                {services.slice(0, 2).map((service, index) => (
+                  <div
+                    key={index}
+                    className="relative h-[300px] rounded-md overflow-hidden shadow-md group cursor-pointer"
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={800}
+                      height={800}
+                    />
+                    <div className="absolute inset-0 flex flex-col z-10 items-center justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0 px-2">
+                      <div className="flex flex-col items-center justify-center p-2  backdrop-blur-xs rounded-md">
+                        <h3 className="text-white text-xl font-bold text-center">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm opacity-90 mb-4">
+                        {service.description}
+                      </p>
+                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                        READ MORE →
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              {/* Column 2 – 3 items */}
+              <div className="flex flex-col gap-4">
+                {services.slice(2, 5).map((service, index) => (
+                  <div
+                    key={index}
+                    className="relative h-[300px] md:h-[195px] rounded-md overflow-hidden shadow-md group cursor-pointer"
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={800}
+                      height={800}
+                    />
+                    <div className="absolute inset-0 flex flex-col z-10 items-center justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0 px-2">
+                      <div className="flex flex-col items-center justify-center p-2 backdrop-blur-xs ">
+                        <h3 className="text-white text-xl font-bold text-center">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm opacity-90 mb-4">
+                        {service.description}
+                      </p>
+                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                        READ MORE →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Column 3 – 2 items */}
+              <div className="flex flex-col gap-4">
+                {services.slice(5, 7).map((service, index) => (
+                  <div
+                    key={index}
+                    className="relative h-[300px] rounded-md overflow-hidden shadow-md group cursor-pointer"
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={800}
+                      height={800}
+                    />
+                    <div className="absolute inset-0 flex items-center z-10 justify-center bg-black/20 transition-opacity duration-300 group-hover:opacity-0">
+                      <div className="flex flex-col items-center justify-center p-2 backdrop-blur-xs rounded-md">
+                        <h3 className="text-white text-xl font-bold text-center">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm opacity-90 mb-4">
+                        {service.description}
+                      </p>
+                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                        READ MORE →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <section className="pt-28">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="border-yellow-dark border-y py-20 flex flex-col items-center justify-center">
-            <div className="max-w-4xl space-y-2 flex justify-center items-center flex-col gap-4 px-10">
+      {/* Why Us Section */}
+      <section className=" px-8 max-w-[95rem] mx-auto space-y-14 md:space-y-28 min-h-1/2 h-full flex flex-col items-center justify-center md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className=" py-10 ">
+            <div className="max-w-4xl space-y-4 flex justify-center items-center flex-col gap-4 px-10">
               <div className="space-y-4">
-                <p className="text-center text-7xl font-extrabold tracking-widest text-yellow">
+                <h2 className="text-center text-6xl font-extrabold tracking-widest text-yellow">
                   Why us?
-                </p>
-                <p className="text-center text-paragraph text-3xl">
+                </h2>
+                <p className="text-center text-paragraph text-2xl">
                   Building The Dream.
-                </p>
+                </p>{" "}
+                <div className="relative mt-4 flex items-center justify-center">
+                  <div className="h-[2px] bg-[#70541d] w-1/4" />
+                  <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
+                  <div className="h-[2px] bg-[#70541d] w-1/4 " />
+                </div>
               </div>
               <div className="space-y-2">
                 <p className="text-center text-base text-paragraph">
@@ -332,89 +420,44 @@ export default function Home() {
                 </p>
               </div>{" "}
             </div>
-            <div className="mt-14">
-              <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-white px-6">
-                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">
-                    Our Attention to Details
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">Price Certainty</p>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">
-                    Our Credibility & Excellent Service
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">
-                    More than 5 years of experience
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-4 border-r-2 border-yellow">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">
-                    Impeccable quality standards
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <RiTimer2Line className="h-12 w-12 text-yellow" />
-                  <p className="text-lg font-semibold">
-                    Highly Creative in-house Designers
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex justify-center mt-10">
-                <Button variant="al_eliza" size="al_eliza" className="ml-4">
-                  Get a Quote
-                </Button>
-              </div>
-            </div>
           </div>
-          <div className=" bg-white">
-            <div className="py-16 px-6 flex flex-col items-center text-center relative h-full justify-center gap-14 ">
-              <div className="text-[#d49d39] text-lg sm:text-xl font-medium leading-relaxed space-y-1">
-                <p className="text-2xl max-w-lg relative">
-                  <FaQuoteLeft className="inline-block mr-2 absolute -top-3 -left-2" />
+
+          <div className="relative py-16 px-6 flex flex-col items-center text-center justify-center gap-14 h-full ">
+            <Image
+              src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753393326/img6_laomha.webp"
+              alt="About Us Background"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
+              className="object-cover object-center z-0 rounded-xl"
+            />
+
+            <div className="absolute inset-0 bg-black/20 z-10" />
+
+            {/* Content */}
+            <div className="relative z-20 max-w-2xl bg-transparent text-white">
+              <div className=" text-lg sm:text-xl font-serif  space-y-1 backdrop-blur-xs p-4">
+                <p className="text-2xl relative italic ">
+                  <FaQuoteLeft className="inline-block mr-2 absolute -top-3 -left-1 text-[#d49d39]" />
                   Over 7 years of expertise Uncompromising Quality Standards
                   Visionary In-House Designers Meticulous Attention to Detail
                   Transparent Pricing Assurance Trusted Credibility Outstanding
                   Client Service
-                  <FaQuoteRight className="inline-block ml-2 absolute -bottom-2 right-18" />
+                  <FaQuoteRight className="inline-block ml-2 absolute -bottom-1 right-1 text-[#d49d39]" />
                 </p>
               </div>
-
-              <p className="max-w-xl text-black text-[16px] leading-relaxed font-light italic mb-8">
-                &quot;Our team takes immense pride in surpassing our
-                clients&apos; expectations, crafting each project into a
-                masterpiece where architectural precision and artistic vision
-                converge seamlessly. We believe that no space is truly complete
-                without a signature element of art, reflecting the soul of its
-                design&quot;
-              </p>
-
-              {/* Signature image */}
-              {/* <img
-                src="/images/signature.png" 
-                alt="Signature"
-                className="w-32 h-auto"
-              /> */}
             </div>
           </div>
-        </div>
+        </div>{" "}
+        <p className="max-w-4xl mx-auto text-center text-xl leading-relaxed font-medium italic mt-6 text-paragraph">
+          &quot;Our team takes immense pride in surpassing our clients&apos;
+          expectations, crafting each project into a masterpiece where
+          architectural precision and artistic vision converge seamlessly. We
+          believe that no space is truly complete without a signature element of
+          art, reflecting the soul of its design.&quot;
+        </p>
       </section>
-      <section className="h-screen">under construction</section>
+      {/* <section className="h-screen"></section> */}
     </main>
   );
 }
