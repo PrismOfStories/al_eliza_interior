@@ -6,7 +6,6 @@ import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
 import { Button } from "../ui/button";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { link } from "fs";
 import Link from "next/link";
 
 export default function Home() {
