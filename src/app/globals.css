@@ -125,4 +125,19 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Override Swiper navigation button color */
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply !text-yellow !h-4 !w-4;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    @apply !text-yellow-dark;
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply !bg-yellow-dark;
+  }
 }
