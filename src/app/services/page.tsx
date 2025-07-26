@@ -1,5 +1,6 @@
+import Services from "@/components/Pages/Services";
 import React from "react";
 
 export default function page() {
-  return <div>Services</div>;
+  return <Services />;
 }
