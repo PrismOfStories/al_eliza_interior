@@ -6,6 +6,7 @@ import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
 import { Button } from "../ui/button";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Home() {
   const containerVariant = {
@@ -36,6 +37,7 @@ export default function Home() {
         "We provide tailored interior design solutions for residential and commercial spaces with elegance and functionality.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375129/img4_te0upt.webp",
+      link: "/services#residential-commercial-designs",
     },
     {
       title: "Design Consultancy",
@@ -43,6 +45,7 @@ export default function Home() {
         "Expert design consultations to turn your vision into reality, from layout planning to final finishes.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img1_crbyqj.webp",
+      link: "/services#design-consultancy",
     },
     {
       title: "Virtual Reality 360° Designs",
@@ -50,6 +53,7 @@ export default function Home() {
         "Experience your space before it's built with immersive 360° VR walkthroughs and visualizations.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375129/img5_nsn0nj.webp",
+      link: "/services#virtual-reality-designs",
     },
     {
       title: "Fit out Approvals",
@@ -57,6 +61,7 @@ export default function Home() {
         "We manage and secure fit-out approvals with relevant authorities to ensure smooth project execution.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp",
+      link: "/services#fit-out-approvals",
     },
     {
       title: "Turnkey Fit out Projects",
@@ -64,6 +69,7 @@ export default function Home() {
         "From concept to completion – we handle every aspect of your project with end-to-end solutions.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375128/img3_u7qqdu.webp",
+      link: "/services#turnkey-fit-out-projects",
     },
     {
       title: "Landscaping",
@@ -71,6 +77,7 @@ export default function Home() {
         "Transform your outdoor spaces with creative and sustainable landscaping solutions.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp",
+      link: "/services#landscaping",
     },
     {
       title: "Maintenance",
@@ -78,6 +85,7 @@ export default function Home() {
         "Comprehensive maintenance services to keep your spaces functional, safe, and beautiful.",
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_2_ucqtyb.webp",
+      link: "/services#maintenance",
     },
   ];
 
@@ -254,7 +262,7 @@ export default function Home() {
         </div>
       </section>
       {/* Services Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center py-14 md:py-24">
+      <section className="min-h-screen flex flex-col items-center justify-center py-12 md:py-24">
         <div className="container mx-auto px-4">
           <div className="relative text-center mb-16">
             {/* <h2 className="text-3xl sm:text-4xl font-bold uppercase text-white">
@@ -297,16 +305,19 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-auto">
                       <h3 className="text-xl font-semibold mb-2">
                         {service.title}
                       </h3>
                       <p className="text-sm opacity-90 mb-4">
                         {service.description}
                       </p>
-                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                      <Link
+                        href={service.link}
+                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                      >
                         READ MORE →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -333,16 +344,19 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-auto">
                       <h3 className="text-xl font-semibold mb-2">
                         {service.title}
                       </h3>
                       <p className="text-sm opacity-90 mb-4">
                         {service.description}
                       </p>
-                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                      <Link
+                        href={service.link}
+                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                      >
                         READ MORE →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -369,16 +383,19 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-black/80 text-white flex flex-col items-center justify-center px-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-auto">
                       <h3 className="text-xl font-semibold mb-2">
                         {service.title}
                       </h3>
                       <p className="text-sm opacity-90 mb-4">
                         {service.description}
                       </p>
-                      <button className="border border-[#70541d] hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded">
+                      <Link
+                        href={service.link}
+                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                      >
                         READ MORE →
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -388,10 +405,10 @@ export default function Home() {
         </div>
       </section>
       {/* Why Us Section */}
-      <section className=" px-8 max-w-[95rem] mx-auto space-y-14 md:space-y-28 min-h-1/2 h-full flex flex-col items-center justify-center md:py-20">
+      <section className="px-8 md:max-w-[95rem] mx-auto space-y-14 md:space-y-28 min-h-1/2 h-full flex flex-col items-center justify-center md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className=" py-10 ">
-            <div className="max-w-4xl space-y-4 flex justify-center items-center flex-col gap-4 px-10">
+            <div className="md:max-w-4xl space-y-4 flex justify-center items-center flex-col gap-4 md:px-10">
               <div className="space-y-4">
                 <h2 className="text-center text-6xl font-extrabold tracking-widest text-yellow">
                   Why us?
@@ -405,15 +422,15 @@ export default function Home() {
                   <div className="h-[2px] bg-[#70541d] w-1/4 " />
                 </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-center text-base text-paragraph">
+              <div className="space-y-4">
+                <p className="text-left md:text-center text-base text-paragraph">
                   Our team of professionals is dedicated to working personally
                   with each client to uncover their specific wants, needs and
                   style to infuse their space with luxurious yet functional
                   design that balance style with necessity.
                 </p>
 
-                <p className="text-center text-base text-paragraph">
+                <p className="text-left md:text-center text-base text-paragraph">
                   Collaborate with us and implement exceptional designs, that
                   deliver remarkable first impressions and exceed your
                   expectations.

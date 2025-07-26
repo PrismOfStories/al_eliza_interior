@@ -1,15 +1,54 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { Button } from "../ui/button";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import ImageSwiper from "../common/ImageSwiper";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+
+const AnimatedService = ({
+  children,
+  id,
+}: {
+  children: React.ReactNode;
+  id: string;
+}) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  return (
+    <motion.div
+      id={id}
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: 60 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, ease: "easeOut" },
+        },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default function Services() {
   const services = [
     {
+      id: "residential-commercial-designs",
       title: "Residential & Commercial Interior Design",
       description:
         "Whether it's a brand new build or a space refresh, we offer full spectrum interior styling services in Dubai, UAE. For new homeowners, we design interiors from the ground up. For clients looking to enhance existing spaces, we expertly rearrange furniture, recommend paint colors, and source new décor tailored to their style.",
@@ -21,6 +60,7 @@ export default function Services() {
       ],
     },
     {
+      id: "design-consultancy",
       title: "Interior Design Consultancy",
       description:
         "In today’s people first world, workplace expectations have evolved. Our Dubai-based interior design consultants help businesses across the UAE create flexible, wellness driven environments aligned with their company’s purpose and culture.",
@@ -32,6 +72,7 @@ export default function Services() {
       ],
     },
     {
+      id: "virtual-reality-designs",
       title: "360° Virtual Reality Interior Design",
       description:
         "Embrace the future of design with our immersive 360° Virtual Reality (VR) experiences. Based in Dubai, UAE, our team builds interactive, photorealistic environments that allow clients to explore their spaces before physical execution.",
@@ -43,6 +84,7 @@ export default function Services() {
       ],
     },
     {
+      id: "fit-out-approvals",
       title: "Fit-Out Approvals & Compliance",
       description:
         "Navigating Dubai's regulatory landscape is a critical part of any commercial interior project. We manage the entire approval process, liaising with building owners, developers, and government bodies across Dubai and the UAE.",
@@ -54,6 +96,7 @@ export default function Services() {
       ],
     },
     {
+      id: "turnkey-fit-out-projects",
       title: "Turnkey Fit-Out Solutions",
       description:
         "Our turnkey fit out services in Dubai provide a hassle free, end to end solution for commercial and residential spaces. From concept development to final handover, we deliver fully functional interiors tailored to your needs.",
@@ -65,6 +108,7 @@ export default function Services() {
       ],
     },
     {
+      id: "landscaping",
       title: "Landscaping & Outdoor Design",
       description:
         "Our landscaping services in Dubai transform outdoor spaces into lush, livable environments. We design and install gardens, courtyards, and terraces that balance natural beauty with function perfect for villas, offices, and commercial properties.",
@@ -76,6 +120,7 @@ export default function Services() {
       ],
     },
     {
+      id: "maintenance",
       title: "Interior Maintenance Services",
       description:
         "Maintain your property’s value with our comprehensive interior maintenance services in Dubai, UAE. From routine upkeep to urgent fixes, we keep your home or commercial space running smoothly year round.",
@@ -88,17 +133,7 @@ export default function Services() {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div>
@@ -131,115 +166,125 @@ export default function Services() {
       {!isMobile ? (
         <section className="max-w-[90rem] mx-auto py-24 space-y-24">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-1 md:grid-cols-2 h-auto w-full space-x-6"
-            >
-              {index % 2 === 0 ? (
-                <>
-                  {/* Left Content */}
-                  <div className="flex flex-col items-center justify-center p-6">
-                    <div className="max-w-xl space-y-3">
-                      <h2 className="text-4xl font-semibold text-yellow">
-                        {service.title}
-                      </h2>
-                      <p className="text-lg font-normal text-paragraph">
-                        {service.description}
-                      </p>
-                      {service.additional && (
-                        <p className="text-lg font-normal text-paragraph">
-                          {service.additional}
-                        </p>
-                      )}
-                    </div>
-                    <Button
-                      variant="al_eliza"
-                      size="al_eliza"
-                      className="mt-8 w-56 flex justify-center mx-auto items-center"
+            <AnimatedService key={service.id + index} id={service.id}>
+              <div className="grid grid-cols-1 md:grid-cols-2 h-auto w-full space-x-6">
+                {index % 2 === 0 ? (
+                  <>
+                    {/* Left Content */}
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="flex flex-col items-center justify-center p-6"
                     >
-                      Get a Quote{" "}
-                      <MdOutlineKeyboardArrowRight className="!h-6 !w-6 " />
-                    </Button>
-                  </div>
-
-                  {/* Right Image */}
-                  <div className="w-full h-full relative flex justify-center items-center overflow-hidden p-6">
-                    <ImageSwiper images={service.images} height="h-[30vw]" />
-                  </div>
-                </>
-              ) : (
-                <>
-                  {/* Left Image */}
-                  <div className="w-full h-full relative flex justify-center items-center overflow-hidden p-6">
-                    <ImageSwiper images={service.images} height="h-[30vw]" />
-                  </div>
-
-                  {/* Right Content */}
-                  <div className="flex flex-col items-center justify-center p-6">
-                    <div className="max-w-xl space-y-3">
-                      <h2 className="text-4xl font-semibold text-yellow">
-                        {service.title}
-                      </h2>
-                      <p className="text-lg font-normal text-paragraph">
-                        {service.description}
-                      </p>
-                      {service.additional && (
+                      <div className="max-w-xl space-y-3">
+                        <h2 className="text-4xl font-semibold text-yellow">
+                          {service.title}
+                        </h2>
                         <p className="text-lg font-normal text-paragraph">
-                          {service.additional}
+                          {service.description}
                         </p>
-                      )}
-                    </div>
-                    <Button
-                      variant="al_eliza"
-                      size="al_eliza"
-                      className="mt-8 w-56 flex justify-center mx-auto items-center"
+                        {service.additional && (
+                          <p className="text-lg font-normal text-paragraph">
+                            {service.additional}
+                          </p>
+                        )}
+                      </div>
+                      <Button
+                        variant="al_eliza"
+                        size="al_eliza"
+                        className="mt-8 w-56 flex justify-center mx-auto items-center"
+                      >
+                        Get a Quote{" "}
+                        <MdOutlineKeyboardArrowRight className="!h-6 !w-6" />
+                      </Button>
+                    </motion.div>
+
+                    {/* Right Image */}
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? 60 : -60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="w-full h-full relative flex justify-center items-center overflow-hidden p-6"
                     >
-                      Get a Quote{" "}
-                      <MdOutlineKeyboardArrowRight className="!h-6 !w-6 " />
-                    </Button>
-                  </div>
-                </>
-              )}
-            </div>
+                      <ImageSwiper images={service.images} height="h-[30vw]" />
+                    </motion.div>
+                  </>
+                ) : (
+                  <>
+                    {/* Left Image */}
+                    <div className="w-full h-full relative flex justify-center items-center overflow-hidden p-6">
+                      <ImageSwiper images={service.images} height="h-[30vw]" />
+                    </div>
+
+                    {/* Right Content */}
+                    <div className="flex flex-col items-center justify-center p-6">
+                      <div className="max-w-xl space-y-3">
+                        <h2 className="text-4xl font-semibold text-yellow">
+                          {service.title}
+                        </h2>
+                        <p className="text-lg font-normal text-paragraph">
+                          {service.description}
+                        </p>
+                        {service.additional && (
+                          <p className="text-lg font-normal text-paragraph">
+                            {service.additional}
+                          </p>
+                        )}
+                      </div>
+                      <Button
+                        variant="al_eliza"
+                        size="al_eliza"
+                        className="mt-8 w-56 flex justify-center mx-auto items-center"
+                      >
+                        Get a Quote{" "}
+                        <MdOutlineKeyboardArrowRight className="!h-6 !w-6 " />
+                      </Button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </AnimatedService>
           ))}
         </section>
       ) : (
         <section className="max-w-[90rem] mx-auto py-24 space-y-16 px-4">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex flex-col md:grid md:grid-cols-2 gap-6 items-center"
-            >
-              {/* Text Content */}
-              <div className="flex flex-col items-center justify-center p-4 md:p-6 text-center md:text-left">
-                <div className="max-w-xl space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-semibold text-yellow">
-                    {service.title}
-                  </h2>
-                  <p className="text-base md:text-lg text-paragraph">
-                    {service.description}
-                  </p>
-                  {service.additional && (
+            <AnimatedService key={service.id + index} id={service.id}>
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-6 items-center">
+                {/* Text Content */}
+                <div className="flex flex-col p-4 md:p-6 text-left md:text-left">
+                  <div className="max-w-xl space-y-4">
+                    <h2 className="text-3xl md:text-4xl font-semibold text-yellow">
+                      {service.title}
+                    </h2>
                     <p className="text-base md:text-lg text-paragraph">
-                      {service.additional}
+                      {service.description}
                     </p>
-                  )}
+                    {service.additional && (
+                      <p className="text-base md:text-lg text-paragraph">
+                        {service.additional}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Swiper Image */}
-              <div className="w-full h-full relative flex justify-center items-center p-4 md:p-6">
-                <ImageSwiper images={service.images} height="h-[60vw]" />
-              </div>
+                {/* Swiper Image */}
+                <div className="w-full h-full relative flex justify-center items-center p-4 md:p-6">
+                  <ImageSwiper images={service.images} height="h-[60vw]" />
+                </div>
 
-              <Button
-                variant="al_eliza"
-                size="al_eliza"
-                className="w-56 mt-4 mx-auto"
-              >
-                Get a Quote
-              </Button>
-            </div>
+                <Button
+                  variant="al_eliza"
+                  size="al_eliza"
+                  className="w-56 mt-4 mx-auto"
+                >
+                  Get a Quote
+                </Button>
+              </div>
+            </AnimatedService>
           ))}
         </section>
       )}
