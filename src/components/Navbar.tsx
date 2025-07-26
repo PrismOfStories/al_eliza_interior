@@ -10,6 +10,8 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoClose, IoCall, IoMail } from "react-icons/io5";
 import WhatsAppButton from "./WhatsAppButton";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import { useScrolled } from "@/lib/hooks/useScrolled";
 
 export default function Header() {
   const pathname = usePathname();
@@ -30,27 +32,8 @@ export default function Header() {
     { name: "LinkedIn", href: "https://linkedin.com", icon: FaLinkedinIn },
   ];
 
-  const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isScrolled = useScrolled(50);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -79,7 +62,7 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-          scrolled
+          isScrolled
             ? "bg-transparent backdrop-blur-xs shadow-md "
             : "bg-transparent py-2"
         }`}
@@ -90,8 +73,8 @@ export default function Header() {
               <Image
                 src="/images/logo.png"
                 alt="Al Eliza Interior Logo"
-                width={scrolled || isMobile ? 60 : 110}
-                height={scrolled || isMobile ? 60 : 110}
+                width={isScrolled || isMobile ? 60 : 110}
+                height={isScrolled || isMobile ? 60 : 110}
                 className="transition-all duration-300"
               />
             </div>
