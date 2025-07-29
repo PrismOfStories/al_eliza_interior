@@ -52,6 +52,7 @@ export default function Preloader() {
           <div className="mb-8">
             <Image
               src="/images/logo.png"
+              priority
               alt="Al Eliza Interior"
               className={`h-56 w-auto animate-pulse transition-transform duration-500 ease-in-out ${
                 progress >= 100 ? "scale-125" : "scale-100"
