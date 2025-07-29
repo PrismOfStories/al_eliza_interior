@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button } from "../ui/button";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import LightboxImageCarousel from "../common/LightboxImageCarousel";
+import ImageSwiper from "../common/ImageSwiper";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 const AnimatedService = ({
@@ -209,20 +209,14 @@ export default function Services() {
                       viewport={{ once: true, amount: 0.2 }}
                       className="w-full h-full relative flex justify-center items-center overflow-hidden p-6 "
                     >
-                      <LightboxImageCarousel
-                        images={service.images}
-                        height="h-[30vw]"
-                      />
+                      <ImageSwiper images={service.images} height="h-[25vw]" />
                     </motion.div>
                   </>
                 ) : (
                   <>
                     {/* Left Image */}
                     <div className="w-full h-full relative flex justify-center items-center overflow-hidden p-6">
-                      <LightboxImageCarousel
-                        images={service.images}
-                        height="h-[30vw]"
-                      />
+                      <ImageSwiper images={service.images} height="h-[25vw]" />
                     </div>
 
                     {/* Right Content */}
@@ -279,10 +273,7 @@ export default function Services() {
 
                 {/* Swiper Image */}
                 <div className="w-full h-full relative flex justify-center items-center p-4 md:p-6">
-                  <LightboxImageCarousel
-                    images={service.images}
-                    height="h-[60vw]"
-                  />
+                  <ImageSwiper images={service.images} height="h-[60vw]" />
                 </div>
 
                 <Button
