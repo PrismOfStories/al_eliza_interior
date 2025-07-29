@@ -2,9 +2,16 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 export default function Portfolio() {
   const [currentTab, setCurrentTab] = useState("all");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const images = [
     {
@@ -116,6 +123,10 @@ export default function Portfolio() {
     return currentTab === "all" || image.category === currentTab;
   });
 
+  const slides = filteredImages.map((img) => ({
+    src: img.src,
+    alt: img.category,
+  }));
   return (
     <>
       <div className="relative h-[45vh] bg-cover bg-center">
@@ -173,7 +184,11 @@ export default function Portfolio() {
             {filteredImages.map((item, i) => (
               <div
                 key={i}
-                className="w-full aspect-square overflow-hidden rounded-lg"
+                onClick={() => {
+                  setLightboxIndex(i);
+                  setLightboxOpen(true);
+                }}
+                className="w-full aspect-square overflow-hidden rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300"
               >
                 <Image
                   src={item.src}
@@ -187,6 +202,15 @@ export default function Portfolio() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Lightbox Viewer */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={slides}
+        plugins={[Thumbnails, Fullscreen]}
+      />
     </>
   );
 }
