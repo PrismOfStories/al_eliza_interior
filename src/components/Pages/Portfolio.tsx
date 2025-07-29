@@ -211,6 +211,8 @@ export default function Portfolio() {
         index={lightboxIndex}
         slides={slides}
         plugins={[Thumbnails, Fullscreen, Zoom]}
+        carousel={{ finite: true }}
+        animation={{ fade: 250 }}
       />
     </>
   );
