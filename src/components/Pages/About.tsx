@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Team from "../Team";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
+import Link from "next/link";
 
 export default function Page() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -120,14 +121,11 @@ export default function Page() {
                 and exceed your expectations.{" "}
               </p>
               <div className="w-full flex justify-center lg:justify-center mt-6">
-                <Button
-                  variant="al_eliza"
-                  className="ml-4"
-                  size="al_eliza"
-                  onClick={() => alert("Navigate to contact page")}
-                >
-                  Contact Us →
-                </Button>
+                <Link href="/contact">
+                  <Button variant="al_eliza" className="ml-4" size="al_eliza">
+                    Contact Us →
+                  </Button>
+                </Link>
               </div>
             </motion.div>
           </motion.div>

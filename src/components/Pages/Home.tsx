@@ -86,13 +86,13 @@ export default function Home() {
               Honoring architectural vision and ensuring exceptional execution.
             </p>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 flex-col md:flex-row mt-7">
               <Link href="/portfolio">
                 <Button
                   onClick={() => alert("Start Your Design Journey Clicked")}
                   variant="al_eliza"
                   size="al_eliza"
-                  className="mt-7 border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
+                  className="border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
                 >
                   Start Your Transformation
                 </Button>
@@ -102,7 +102,7 @@ export default function Home() {
                   onClick={() => alert("Start Your Design Journey Clicked")}
                   variant="al_eliza"
                   size="al_eliza"
-                  className="mt-7 border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
+                  className="border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
                 >
                   Let&apos;s Talk
                 </Button>
