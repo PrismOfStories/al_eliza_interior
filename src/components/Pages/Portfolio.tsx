@@ -159,7 +159,7 @@ export default function Portfolio() {
       {/* add list of buttons like tab */}
 
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <ul className="flex justify-around gap-4 my-8 text-lg font-normal  flex-wrap">
+        <ul className="flex justify-center md:justify-around gap-10 md:gap-4 my-8 text-lg md:text-xl font-normal flex-wrap">
           {tabs.map((tab) => (
             <li
               onClick={() => setCurrentTab(tab.value)}

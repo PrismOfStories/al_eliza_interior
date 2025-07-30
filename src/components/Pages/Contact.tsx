@@ -69,8 +69,8 @@ const Contact: React.FC = () => {
         <Image
           src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-black opacity-45" />

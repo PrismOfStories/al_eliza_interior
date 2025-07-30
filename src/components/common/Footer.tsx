@@ -10,12 +10,16 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-[85%] mx-auto py-6">
         {/* Logo Section */}
         <div className="flex flex-col items-start">
-          <Image
-            src="/images/logo.png"
-            alt="Al Eliza Interior"
-            width={180}
-            height={40}
-          />
+          <div className="relative w-[150px] h-[150px]">
+            <Image
+              src="/images/logo.png"
+              alt="Al Eliza Interior"
+              fill
+              className="object-contain h-full w-full"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 150px"
+              priority
+            />
+          </div>
           <p className=" text-white/60 mt-4 uppercase space-x-4 font-semibold text-xs">
             <span className="text-yellow">inspired</span>{" "}
             <span className="text-yellow">creative</span>{" "}

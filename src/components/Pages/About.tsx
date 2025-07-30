@@ -14,8 +14,8 @@ export default function Page() {
         <Image
           src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-black opacity-45" />
@@ -35,7 +35,7 @@ export default function Page() {
         </div>
       </div>
 
-      <section className="py-16 sm:py-24 relative">
+      <section className="py-24 sm:py-40 relative">
         <div className="w-full max-w-[95rem] px-4 md:px-8 lg:px-10 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -108,24 +108,26 @@ export default function Page() {
         </div>
       </section>
 
-      <div
-        className="w-full py-16 px-6 md:px-12 lg:px-20 bg-cover bg-center relative"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
+      <div className="relative w-full py-16 sm:py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <Image
+          src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp"
+          alt="Interior background"
+          fill
+          className="object-cover object-center z-[-1]"
+          priority
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/30 z-0" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-20">
           <div className="w-full lg:w-[400px] flex justify-center items-center relative">
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-[400px] h-[300px]">
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_2_ucqtyb.webp"
                 alt="About us image 3"
-                className="rounded-lg shadow-xl w-full h-auto object-cover"
-                width={400}
-                height={300}
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="rounded-lg shadow-xl object-cover"
               />
               <div
                 className="absolute bottom-[-50px] left-5 right-5 backdrop-blur-sm bg-black/20  text-[#FCBA06] shadow-lg rounded-lg py-4 px-6 max-w-md mx-auto text-center"
