@@ -70,14 +70,16 @@ export default function Header() {
         <nav className=" mx-auto px-4 md:px-14 ">
           <div className="flex justify-between items-center">
             <div className="text-white text-xl font-bold">
-              <Image
-                src="/images/logo.png"
-                alt="Al Eliza Interior Logo"
-                width={isScrolled || isMobile ? 60 : 110}
-                height={isScrolled || isMobile ? 60 : 110}
-                className="transition-all duration-300"
-                priority
-              />
+              <Link href="/">
+                <Image
+                  src="/images/logo.png"
+                  alt="Al Eliza Interior Logo"
+                  width={isScrolled || isMobile ? 60 : 110}
+                  height={isScrolled || isMobile ? 60 : 110}
+                  className="transition-all duration-300"
+                  priority
+                />
+              </Link>
             </div>
 
             {/* Desktop Navigation and Buttons */}

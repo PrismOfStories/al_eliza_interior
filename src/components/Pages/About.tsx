@@ -5,18 +5,29 @@ import { FaHandsHelping, FaStar, FaUserCog } from "react-icons/fa";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Footer from "../common/Footer";
 import Team from "../Team";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 export default function Page() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const imageVariants = {
+    hidden: isMobile ? { opacity: 0, y: 50 } : { opacity: 0, x: -60 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
+
+  const textVariants = {
+    hidden: isMobile ? { opacity: 0, y: 50 } : { opacity: 0, x: 60 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
   return (
-    <>
+    <main>
       <div className="relative h-[45vh] bg-cover bg-center">
         <Image
           src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-black opacity-45" />
@@ -36,7 +47,7 @@ export default function Page() {
         </div>
       </div>
 
-      <section className="py-16 sm:py-24 relative">
+      <section className="py-24 sm:py-40 relative">
         <div className="w-full max-w-[95rem] px-4 md:px-8 lg:px-10 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -46,7 +57,14 @@ export default function Page() {
             className="w-full flex flex-col-reverse lg:flex-row justify-between items-center gap-12"
           >
             {/* Image Stack */}
-            <div className="relative w-full flex items-center justify-center lg:justify-end">
+            <motion.div
+              variants={imageVariants}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="relative w-full flex items-center justify-center lg:justify-end"
+            >
               <div className="relative w-full h-[400px] flex items-center justify-center">
                 <Image
                   className="absolute top-2 left-12 rounded-xl object-cover shadow-lg"
@@ -77,9 +95,16 @@ export default function Page() {
                   }}
                 />
               </div>
-            </div>
+            </motion.div>
 
-            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left px-6 sm:px-8">
+            <motion.div
+              variants={textVariants}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="w-full flex flex-col items-center lg:items-start text-center lg:text-left px-6 sm:px-8"
+            >
               <h2 className="text-3xl sm:text-4xl font-bold font-manrope leading-snug">
                 <span className="text-yellow">Al Eliza</span> Interior Company
               </h2>
@@ -104,37 +129,39 @@ export default function Page() {
                   Contact Us →
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <div
-        className="w-full py-16 px-6 md:px-12 lg:px-20 bg-cover bg-center relative"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
+      <div className="relative w-full py-16 sm:py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+        <Image
+          src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/intro-poster_mw7g0m.webp"
+          alt="Interior background"
+          fill
+          className="object-cover object-center z-[-1]"
+          priority
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/30 z-0" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-20">
           <div className="w-full lg:w-[400px] flex justify-center items-center relative">
-            <div className="relative w-full max-w-lg">
+            <div className="relative w-[400px] h-[300px]">
               <Image
                 src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_2_ucqtyb.webp"
                 alt="About us image 3"
-                className="rounded-lg shadow-xl w-full h-auto object-cover"
-                width={400}
-                height={300}
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="rounded-lg shadow-xl object-cover"
               />
               <div
                 className="absolute bottom-[-50px] left-5 right-5 backdrop-blur-sm bg-black/20  text-[#FCBA06] shadow-lg rounded-lg py-4 px-6 max-w-md mx-auto text-center"
                 style={{ zIndex: 10 }}
               >
-                <p className="font-bold text-xl md:text-2xl">
+                <h2 className="font-bold text-xl md:text-2xl">
                   Our Core Pillars
-                </p>
+                </h2>
                 <p className="text-sm md:text-base text-white">
                   We offer a dynamic and inclusive work environment that fosters
                   growth, creativity, and innovation.
@@ -150,10 +177,12 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Trust</p>Our
-                  clients choose us for our transparency, commitment to
-                  promises, and consistent dedication to surpassing
-                  expectations.
+                  <h3 className="font-bold text-xl text-paragraph">Trust</h3>
+                  <p>
+                    Our clients choose us for our transparency, commitment to
+                    promises, and consistent dedication to surpassing
+                    expectations.
+                  </p>
                 </div>
               </div>
             </div>
@@ -164,10 +193,12 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Quality</p> We
-                  achieve unmatched quality by adhering to the highest
-                  standards, utilizing skilled craftsmanship, and sourcing
-                  premium materials to deliver exceptional results.
+                  <h3 className="font-bold text-xl text-paragraph">Quality</h3>
+                  <p>
+                    We achieve unmatched quality by adhering to the highest
+                    standards, utilizing skilled craftsmanship, and sourcing
+                    premium materials to deliver exceptional results.
+                  </p>
                 </div>
               </div>
             </div>
@@ -178,18 +209,19 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Service</p> We
-                  provide personalized, client-focused solutions, ensuring a
-                  smooth and timely project experience tailored to each unique
-                  vision.
+                  <h3 className="font-bold text-xl text-paragraph">Service</h3>
+                  <p>
+                    We provide personalized, client-focused solutions, ensuring
+                    a smooth and timely project experience tailored to each
+                    unique vision.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Team/>
-      <Footer/>
-    </>
+      <Team />
+    </main>
   );
 }
