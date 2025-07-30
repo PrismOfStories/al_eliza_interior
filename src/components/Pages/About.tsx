@@ -5,7 +5,6 @@ import { FaHandsHelping, FaStar, FaUserCog } from "react-icons/fa";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Footer from "../common/Footer";
 import Team from "../Team";
 
 export default function Page() {
@@ -188,8 +187,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Team/>
-      <Footer/>
+      <Team />
     </>
   );
 }

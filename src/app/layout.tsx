@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 // import FollowingDot from "@/components/FollowingDot";
 import Preloader from "@/components/Preloader";
 import "./globals.css";
+import Footer from "@/components/common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,6 +96,7 @@ export default function RootLayout({
         {/* <FollowingDot /> */}
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
