@@ -129,7 +129,7 @@
   /* Override Swiper navigation button color */
   .swiper-button-prev,
   .swiper-button-next {
-    @apply !text-yellow !h-4 !w-4;
+    @apply !text-neutral-200/50 !h-2 !w-2;
   }
 
   .swiper-button-prev:hover,

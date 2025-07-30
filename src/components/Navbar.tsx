@@ -22,7 +22,7 @@ export default function Header() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Gallery", href: "/gallery" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -76,6 +76,7 @@ export default function Header() {
                 width={isScrolled || isMobile ? 60 : 110}
                 height={isScrolled || isMobile ? 60 : 110}
                 className="transition-all duration-300"
+                priority
               />
             </div>
 
@@ -162,6 +163,7 @@ export default function Header() {
                     alt="Al Eliza Interior Logo"
                     width={120}
                     height={120}
+                    priority
                     className="h-16 w-16"
                   />
                 </motion.div>

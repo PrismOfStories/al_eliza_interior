@@ -7,7 +7,17 @@ import AnimatedCounter from "../AnimatedCounter";
 import { Button } from "../ui/button";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 export default function Home() {
   const containerVariant = {
     hidden: {},
@@ -17,7 +27,9 @@ export default function Home() {
       },
     },
   };
+
   const customEase = cubicBezier(0.42, 0, 0.58, 1);
+
   const itemVariant = {
     hidden: { opacity: 0, y: 30 },
     show: {
@@ -86,6 +98,55 @@ export default function Home() {
       image:
         "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_2_ucqtyb.webp",
       link: "/services#maintenance",
+    },
+  ];
+
+  const clientLogos = [
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649514/client_12_x2umsr.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649513/client_11_r3vmqh.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649513/client_10_mov009.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649512/client_9_vupxmb.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649512/client_7_sbknzn.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649512/client_8_c2mixb.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649512/client_6_cxbizc.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649511/client_5_xjpakh.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649510/client_3_mzdfzf.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649511/client_4_ymbtyk.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649510/client_2_bzhf63.webp",
+    "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753649510/client_1_x55ndy.webp",
+  ];
+
+  const faq = [
+    {
+      question: "What will our project cost?",
+      answer:
+        "It depends on the level in which you wish to take your project. If you have budget for your project, we take that into consideration when preparing the scope of work and the design fee for your project. Ultimately the final cost for your project is up to you. You set a budget and it is our job to maximize your project within budget.",
+    },
+    ,
+    {
+      question: "How do we get started, and what is next?",
+      answer:
+        "Before beginning work, we take a design fee retainer, that is applied to your general design fee. We then work with you on any fact finding (preferred design styles, requirements for each space, we photograph the space, and measure if necessary. Next, an initial design presentation is prepared and presented for approval, showing you our initial drawings, material selections, and concepts. After that we work with you on narrowing down the final selections, pricing, and making the design a reality. We make the process simple and enjoyable. Our client’s main job is to say “yes” or “no”.",
+    },
+    {
+      question: "What cities do you work in?",
+      answer:
+        "Our typical project is in Dubai and India. We do take on out of country projects on a case by case basis.",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Nehla Shemeer",
+      role: "",
+      content:
+        "Excellent service and stunning designs! Very professional team who truly understand how to transform a space. Highly recommended!",
+    },
+    {
+      name: "farzana kabeer",
+      role: "",
+      content:
+        "The best interior design company in Dubai Amazing services and high quality work",
     },
   ];
 
@@ -246,9 +307,9 @@ export default function Home() {
                 excellence
               </p>
               <div className="relative mt-4 flex items-center justify-center">
-                <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
-                <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
-                <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
+                <div className="h-[2px] bg-yellow w-1/4 md:w-1/12" />
+                <span className="mx-3 w-1 h-1 rounded-full bg-yellow" />
+                <div className="h-[2px] bg-yellow w-1/4 md:w-1/12" />
               </div>
             </div>
 
@@ -265,9 +326,6 @@ export default function Home() {
       <section className="min-h-screen flex flex-col items-center justify-center py-12 md:py-24">
         <div className="container mx-auto px-4">
           <div className="relative text-center mb-16">
-            {/* <h2 className="text-3xl sm:text-4xl font-bold uppercase text-white">
-              Our Services
-            </h2> */}
             <h2 className="text-center text-5xl font-extrabold tracking-widest text-yellow">
               Our Services
             </h2>
@@ -276,9 +334,9 @@ export default function Home() {
               delivering impactful, high-quality solutions for every need.
             </p>
             <div className="relative mt-4 flex items-center justify-center">
-              <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
-              <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
-              <div className="h-[2px] bg-[#70541d] w-1/4 md:w-1/12" />
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-1/12" />
+              <span className="mx-3 w-1 h-1 rounded-full bg-yellow-dark" />
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-1/12" />
             </div>
           </div>
 
@@ -314,7 +372,7 @@ export default function Home() {
                       </p>
                       <Link
                         href={service.link}
-                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                        className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
                       >
                         READ MORE →
                       </Link>
@@ -353,7 +411,7 @@ export default function Home() {
                       </p>
                       <Link
                         href={service.link}
-                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                        className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
                       >
                         READ MORE →
                       </Link>
@@ -392,7 +450,7 @@ export default function Home() {
                       </p>
                       <Link
                         href={service.link}
-                        className="border border-[#70541d] z-20  hover:bg-[#70541d] text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                        className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
                       >
                         READ MORE →
                       </Link>
@@ -405,7 +463,7 @@ export default function Home() {
         </div>
       </section>
       {/* Why Us Section */}
-      <section className="px-8 md:max-w-[95rem] mx-auto space-y-14 md:space-y-28 min-h-1/2 h-full flex flex-col items-center justify-center md:py-20">
+      <section className="px-8 md:max-w-[95rem] mx-auto space-y-14 md:space-y-28 min-h-1/2 h-full flex flex-col items-center justify-center md:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className=" py-10 ">
             <div className="md:max-w-4xl space-y-4 flex justify-center items-center flex-col gap-4 md:px-10">
@@ -417,9 +475,9 @@ export default function Home() {
                   Building The Dream.
                 </p>{" "}
                 <div className="relative mt-4 flex items-center justify-center">
-                  <div className="h-[2px] bg-[#70541d] w-1/4" />
-                  <span className="mx-3 w-1 h-1 rounded-full bg-[#70541d]" />
-                  <div className="h-[2px] bg-[#70541d] w-1/4 " />
+                  <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
+                  <span className="mx-3 w-1 h-1 rounded-full bg-yellow-dark" />
+                  <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
                 </div>
               </div>
               <div className="space-y-4">
@@ -453,9 +511,9 @@ export default function Home() {
 
             {/* Content */}
             <div className="relative z-20 max-w-2xl bg-transparent text-white">
-              <div className=" text-lg sm:text-xl font-serif  space-y-1 backdrop-blur-xs p-4">
+              <div className=" text-lg sm:text-xl font-serif  space-y-1 backdrop-blur-lg p-5">
                 <p className="text-2xl relative italic ">
-                  <FaQuoteLeft className="inline-block mr-2 absolute -top-3 -left-1 text-[#d49d39]" />
+                  <FaQuoteLeft className="inline-block mr-2 absolute -top-4 -left-1 text-[#d49d39]" />
                   Over 7 years of expertise Uncompromising Quality Standards
                   Visionary In-House Designers Meticulous Attention to Detail
                   Transparent Pricing Assurance Trusted Credibility Outstanding
@@ -474,7 +532,169 @@ export default function Home() {
           art, reflecting the soul of its design.&quot;
         </p>
       </section>
-      {/* <section className="h-screen"></section> */}
+      {/* Clients Section */}
+      <section className="relative min-h-[500px] flex justify-center py-20 mt-20 overflow-hidden">
+        {/* Background Image Layer */}
+        <Image
+          src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/img2_oziylz.webp"
+          alt="Our Clients Background"
+          fill
+          priority
+          className="object-cover object-center z-0 grayscale "
+        />
+
+        <div className="absolute inset-0 bg-black/60 z-10" />
+
+        {/* Overlay content */}
+        <div className="relative z-10 w-full md:max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-extrabold tracking-widest text-yellow">
+              Our Clients
+            </h2>
+            <p className="text-lg sm:text-xl text-white mt-2">
+              Professional design services that blend style and function
+              delivering impactful, high-quality solutions for every need.
+            </p>
+            <div className="relative mt-4 flex items-center justify-center">
+              <div className="h-[2px] bg-yellow w-1/4 md:w-1/12" />
+              <span className="mx-3 w-1 h-1 rounded-full bg-yellow" />
+              <div className="h-[2px] bg-yellow w-1/4 md:w-1/12" />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              slidesPerView="auto"
+              loop={true}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={1000}
+              allowTouchMove={true}
+              className="w-full px-4"
+            >
+              {clientLogos.map((src, i) => (
+                <SwiperSlide
+                  key={i}
+                  className="!w-28 md:!w-32 flex justify-center items-center"
+                >
+                  <div className="w-32 h-32 transition duration-300 cursor-normal bg-white rounded-xl">
+                    <Image
+                      src={src}
+                      alt={`Client ${i + 1}`}
+                      width={128}
+                      height={80}
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+      {/* Testimonials Section */}
+      <section className="min-h-[500px] flex justify-center py-20 mt-10">
+        <div className="mx-auto px-8 w-full md:max-w-6xl">
+          <div className="relative text-center mb-16">
+            <h2 className="text-center text-5xl font-extrabold tracking-widest text-yellow">
+              Testimonials
+            </h2>
+            <p className="text-left md:text-center text-lg sm:text-xl text-paragraph mt-2">
+              Discover why clients across Dubai and India trust us to bring
+              their interior visions to life. Our testimonials reflect the
+              quality, creativity, and dedication we bring to every project from
+              residential makeovers to commercial transformations.
+            </p>
+
+            <div className="relative mt-4 flex items-center justify-center">
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
+              <span className="mx-3 w-1 h-1 rounded-full bg-yellow-dark" />
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
+            </div>
+          </div>
+
+          <div className="w-full max-w-3xl mx-auto px-4 border rounded-xl border-yellow-dark">
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{ clickable: true }}
+              className="rounded-lg"
+            >
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide key={index}>
+                  <div className=" shadow-md p-6 rounded-xl text-center">
+                    <p className="text-xl text-paragraph italic mb-4">
+                      “{testimonial.content}”
+                    </p>
+                    <div className="font-semibold text-yellow-700">
+                      — {testimonial.name}
+                    </div>
+
+                    {testimonial.role && (
+                      <div className="text-sm text-paragraph mb-2">
+                        {testimonial.role}
+                      </div>
+                    )}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+      {/* FAQ Section */}
+      <section className="min-h-[500px] flex justify-center py-14">
+        <div className=" mx-auto px-8 max-w-6xl">
+          <div className="relative text-center mb-16">
+            <h2 className="text-center text-5xl font-extrabold tracking-widest text-yellow">
+              FAQ
+            </h2>
+            <p className="md:text-center text-left text-lg sm:text-xl text-paragraph mt-2">
+              Explore answers to the most common questions about our interior
+              design process, pricing, project timelines, and areas we serve.
+              We’re here to ensure your journey from concept to completion is
+              smooth, transparent, and enjoyable.
+            </p>
+            <div className="relative mt-4 flex items-center justify-center">
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
+              <span className="mx-3 w-1 h-1 rounded-full bg-yellow-dark" />
+              <div className="h-[2px] bg-yellow-dark w-1/4 md:w-2/12" />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center mx-auto ">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full"
+              defaultValue="item-0"
+            >
+              {faq.map((item, index) =>
+                item ? (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-lg sm:text-2xl font-semibold">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-lg text-paragraph">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ) : null
+              )}
+            </Accordion>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

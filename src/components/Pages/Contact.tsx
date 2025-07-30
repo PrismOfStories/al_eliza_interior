@@ -12,7 +12,6 @@ import {
     FaMapMarkerAlt,
     FaFacebookF,
     FaInstagram,
-    FaTwitter,
     FaLinkedinIn,
 
 } from "react-icons/fa";
@@ -283,15 +282,17 @@ const Contact: React.FC = () => {
                                 </div>
 
 
-                                <Button
-                                    type="submit"
-                                    // variant="al_eliza"
-                                    // className="ml-4 px-6 py-2 rounded-md w-full"
-                                    size="al_eliza"
-                                    className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-md w-full"
-                                >
-                                    Send
-                                </Button>
+                                <div className="flex justify-center">
+  <Button
+    type="submit"
+    disabled={loading}
+    size="al_eliza"
+    className={`bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-md w-[250px] ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+  >
+    {loading ? 'Sending...' : 'Send'}
+  </Button>
+</div>
+
 
                             </form>
 

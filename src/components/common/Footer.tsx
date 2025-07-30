@@ -4,7 +4,6 @@ import Image from "next/image";
 import {
     FaInstagram,
     FaFacebookF,
-    FaPinterestP,
     FaLinkedinIn,
 } from "react-icons/fa";
 
