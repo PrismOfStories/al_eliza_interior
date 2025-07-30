@@ -6,10 +6,22 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Team from "../Team";
+import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 
 export default function Page() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const imageVariants = {
+    hidden: isMobile ? { opacity: 0, y: 50 } : { opacity: 0, x: -60 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
+
+  const textVariants = {
+    hidden: isMobile ? { opacity: 0, y: 50 } : { opacity: 0, x: 60 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
   return (
-    <>
+    <main>
       <div className="relative h-[45vh] bg-cover bg-center">
         <Image
           src="https://res.cloudinary.com/dxhmpdgqj/image/upload/v1753375127/about_3_tp5mmt.webp"
@@ -45,7 +57,14 @@ export default function Page() {
             className="w-full flex flex-col-reverse lg:flex-row justify-between items-center gap-12"
           >
             {/* Image Stack */}
-            <div className="relative w-full flex items-center justify-center lg:justify-end">
+            <motion.div
+              variants={imageVariants}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="relative w-full flex items-center justify-center lg:justify-end"
+            >
               <div className="relative w-full h-[400px] flex items-center justify-center">
                 <Image
                   className="absolute top-2 left-12 rounded-xl object-cover shadow-lg"
@@ -76,9 +95,16 @@ export default function Page() {
                   }}
                 />
               </div>
-            </div>
+            </motion.div>
 
-            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left px-6 sm:px-8">
+            <motion.div
+              variants={textVariants}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="w-full flex flex-col items-center lg:items-start text-center lg:text-left px-6 sm:px-8"
+            >
               <h2 className="text-3xl sm:text-4xl font-bold font-manrope leading-snug">
                 <span className="text-yellow">Al Eliza</span> Interior Company
               </h2>
@@ -103,7 +129,7 @@ export default function Page() {
                   Contact Us →
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -133,9 +159,9 @@ export default function Page() {
                 className="absolute bottom-[-50px] left-5 right-5 backdrop-blur-sm bg-black/20  text-[#FCBA06] shadow-lg rounded-lg py-4 px-6 max-w-md mx-auto text-center"
                 style={{ zIndex: 10 }}
               >
-                <p className="font-bold text-xl md:text-2xl">
+                <h2 className="font-bold text-xl md:text-2xl">
                   Our Core Pillars
-                </p>
+                </h2>
                 <p className="text-sm md:text-base text-white">
                   We offer a dynamic and inclusive work environment that fosters
                   growth, creativity, and innovation.
@@ -151,10 +177,12 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Trust</p>Our
-                  clients choose us for our transparency, commitment to
-                  promises, and consistent dedication to surpassing
-                  expectations.
+                  <h3 className="font-bold text-xl text-paragraph">Trust</h3>
+                  <p>
+                    Our clients choose us for our transparency, commitment to
+                    promises, and consistent dedication to surpassing
+                    expectations.
+                  </p>
                 </div>
               </div>
             </div>
@@ -165,10 +193,12 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Quality</p> We
-                  achieve unmatched quality by adhering to the highest
-                  standards, utilizing skilled craftsmanship, and sourcing
-                  premium materials to deliver exceptional results.
+                  <h3 className="font-bold text-xl text-paragraph">Quality</h3>
+                  <p>
+                    We achieve unmatched quality by adhering to the highest
+                    standards, utilizing skilled craftsmanship, and sourcing
+                    premium materials to deliver exceptional results.
+                  </p>
                 </div>
               </div>
             </div>
@@ -179,10 +209,12 @@ export default function Page() {
               </div>
               <div className="flex-1">
                 <div className=" text-sm md:text-base">
-                  <p className="font-bold text-xl text-paragraph">Service</p> We
-                  provide personalized, client-focused solutions, ensuring a
-                  smooth and timely project experience tailored to each unique
-                  vision.
+                  <h3 className="font-bold text-xl text-paragraph">Service</h3>
+                  <p>
+                    We provide personalized, client-focused solutions, ensuring
+                    a smooth and timely project experience tailored to each
+                    unique vision.
+                  </p>
                 </div>
               </div>
             </div>
@@ -190,6 +222,6 @@ export default function Page() {
         </div>
       </div>
       <Team />
-    </>
+    </main>
   );
 }

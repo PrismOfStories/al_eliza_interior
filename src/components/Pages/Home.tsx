@@ -23,7 +23,7 @@ import {
   faq,
   services,
   testimonials,
-} from "@/lib/staticData/Home";
+} from "@/lib/staticData/home";
 export default function Home() {
   const containerVariant = {
     hidden: {},
