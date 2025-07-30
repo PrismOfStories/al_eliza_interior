@@ -89,7 +89,6 @@ export default function Home() {
             <div className="flex justify-center gap-4 flex-col md:flex-row mt-7">
               <Link href="/portfolio">
                 <Button
-                  onClick={() => alert("Start Your Design Journey Clicked")}
                   variant="al_eliza"
                   size="al_eliza"
                   className="border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
@@ -99,7 +98,6 @@ export default function Home() {
               </Link>
               <Link href="/contact">
                 <Button
-                  onClick={() => alert("Start Your Design Journey Clicked")}
                   variant="al_eliza"
                   size="al_eliza"
                   className="border-2 bg-transparent hover:bg-yellow text-white cursor-pointer transition-colors pointer-events-auto"
