@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col items-start">
           <div className="relative w-[150px] h-[150px]">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Al Eliza Interior"
               fill
               className="object-contain h-full w-full"

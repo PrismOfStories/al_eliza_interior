@@ -51,7 +51,7 @@ export default function Preloader() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               priority
               alt="Al Eliza Interior"
               className={`h-56 w-auto animate-pulse transition-transform duration-500 ease-in-out ${

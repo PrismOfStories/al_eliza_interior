@@ -72,7 +72,7 @@ export default function Header() {
             <div className="text-white text-xl font-bold">
               <Link href="/">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="Al Eliza Interior Logo"
                   width={isScrolled || isMobile ? 60 : 110}
                   height={isScrolled || isMobile ? 60 : 110}
@@ -161,7 +161,7 @@ export default function Header() {
                   className="text-white text-xl font-bold"
                 >
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.webp"
                     alt="Al Eliza Interior Logo"
                     width={120}
                     height={120}

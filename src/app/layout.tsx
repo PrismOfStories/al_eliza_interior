@@ -80,6 +80,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/logo.webp"
+          type="image/webp"
+          fetchPriority="high"
+        ></link>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
