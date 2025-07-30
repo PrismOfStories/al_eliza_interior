@@ -5,6 +5,8 @@ import { FaHandsHelping, FaStar, FaUserCog } from "react-icons/fa";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Footer from "../common/Footer";
+import Team from "../Team";
 
 export default function Page() {
   return (
@@ -26,10 +28,10 @@ export default function Page() {
             className="text-center mt-12 px-4"
           >
             <h1 className="text-5xl font-bold mb-4 text-white">About Us</h1>
-            <p className="text-xl text-white max-w-2xl mx-auto">
+            {/* <p className="text-xl text-white max-w-2xl mx-auto">
               Welcome to our company! We are dedicated to delivering the best
               services and products with passion and professionalism.
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </div>
@@ -186,6 +188,8 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <Team/>
+      <Footer/>
     </>
   );
 }
