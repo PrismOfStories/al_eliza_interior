@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { cubicBezier, motion } from "framer-motion";
 import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
@@ -24,8 +24,11 @@ import {
   services,
   testimonials,
 } from "@/lib/staticData/home";
+import PanoramaViewer from "../PanoramaViewer";
 
 export default function Home() {
+  const [viewerImage, setViewerImage] = useState<string | null>(null);
+
   const containerVariant = {
     hidden: {},
     show: {
@@ -342,12 +345,27 @@ export default function Home() {
                       <p className="text-sm opacity-90 mb-4">
                         {service.description}
                       </p>
-                      <Link
-                        href={service.link}
-                        className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
-                      >
-                        READ MORE →
-                      </Link>
+
+                      <div className="flex flex-col md:flex-row items-center gap-2">
+                        {service.title === "Virtual Reality 360° Designs" && (
+                          <button
+                            className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                            onClick={() =>
+                              setViewerImage(
+                                "https://res.cloudinary.com/dxhmpdgqj/image/upload/v1754425343/interior360_xzzq96.webp"
+                              )
+                            }
+                          >
+                            Open 360 Viewer
+                          </button>
+                        )}
+                        <Link
+                          href={service.link}
+                          className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
+                        >
+                          READ MORE →
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -381,6 +399,7 @@ export default function Home() {
                       <p className="text-sm opacity-90 mb-4">
                         {service.description}
                       </p>
+
                       <Link
                         href={service.link}
                         className="border border-yellow-dark z-20  hover:bg-yellow-dark text-white cursor-pointer px-4 py-1.5 text-sm rounded"
@@ -644,6 +663,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {viewerImage && (
+        <PanoramaViewer
+          imageUrl={viewerImage}
+          onClose={() => setViewerImage(null)}
+        />
+      )}
     </main>
   );
 }
