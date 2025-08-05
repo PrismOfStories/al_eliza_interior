@@ -356,7 +356,7 @@ export default function Home() {
                               )
                             }
                           >
-                            Explore in 360° View
+                            Explore 360°
                           </button>
                         )}
                         <Link
