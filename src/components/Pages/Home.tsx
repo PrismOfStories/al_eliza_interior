@@ -356,7 +356,7 @@ export default function Home() {
                               )
                             }
                           >
-                            Open 360 Viewer
+                            Explore in 360° View
                           </button>
                         )}
                         <Link
