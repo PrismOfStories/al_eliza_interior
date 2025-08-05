@@ -22,7 +22,6 @@ export default function PanoramaViewer({ imageUrl, onClose }: Props) {
       container: containerRef.current,
       panorama: imageUrl,
       caption: "360 degree view interior design",
-      touchmoveTwoFingers: true,
       defaultYaw: 0,
       defaultPitch: 0,
       defaultZoomLvl: 0,
